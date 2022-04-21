@@ -1,0 +1,32 @@
+ul, li {
+    list-style: none;
+}
+
+header{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bg-color{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+.container-border{
+    border-radius: 5px;
+}
+
+.navbar-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.nav-link{
+    color: white !important;
+}

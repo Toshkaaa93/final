@@ -1,0 +1,27 @@
+.card{
+    width: 400px;
+    height: 600px;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.img-container{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+.post-text{
+    height: 70px;
+    padding-left: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.btn-like{
+    background-color: plum;
+}
