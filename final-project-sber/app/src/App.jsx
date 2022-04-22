@@ -8,7 +8,7 @@ import About from "./components/About/About";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import PageNotFound from "./components/404/404";
-
+// проверка изменений
 function App() {
   return (
     <PostProvider>
