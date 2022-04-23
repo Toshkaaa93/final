@@ -3,6 +3,7 @@ import { PostContext } from "../../contexts/PostContext";
 import "./PostItem.css";
 const { Link } = require("react-router-dom");
 
+//Перенести кнопку удалить в post-detail
 const PostItem = ({ postId, nickname, text, img, liked, hashteg }) => {
   const { likedPost, deletePost } = useContext(PostContext);
 
