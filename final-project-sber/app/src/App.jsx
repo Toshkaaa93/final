@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import PageNotFound from "./components/404/404";
+import PostDetail from "./components/PostItem/PostDetail/PostDetail";
 // проверка изменений
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/auth/signup" element={<SignUp />} />
             <Route path="/about" element={<About />} />
             <Route path="/auth/logout" element={<About />} />
+            <Route path="/posts/:postsId" element={<PostDetail />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
