@@ -3,7 +3,6 @@ import Form from "../Form/Form";
 function About() {
   return (
     <div className="container">
-      <h1>Дерзай!</h1>
       <Form />
     </div>
   );
