@@ -47,12 +47,12 @@ const Form = () => {
 
   return (
     <div className="container form-wrapper">
-      <h1 className="my-3">Your future post</h1>
+      <h1 className="my-3">Ваш будущий пост</h1>
 
       <form onSubmit={submitHandler}>
         <div className="mb-3">
           <label for="login" class="form-label">
-            Your login
+            Ваш логин
           </label>
           <input
             onChange={changeLogin}
@@ -65,7 +65,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label for="text" class="form-label">
-            Write something
+            Напишите что-нибудь
           </label>
           <input
             onChange={changeText}
@@ -77,7 +77,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label for="img" class="form-label">
-            Your picture
+            Картинка
           </label>
           <input
             className="form-control"
@@ -89,7 +89,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label for="hashtag" class="form-label">
-            Write hashtag
+            Хэштег
           </label>
           <input
             className="form-control"
@@ -101,7 +101,7 @@ const Form = () => {
         </div>
         <div className="d-flex flex-column align-items-center">
           <button type="submit" className="btn btn-primary">
-            Post It
+            Отправить
           </button>
         </div>
       </form>
