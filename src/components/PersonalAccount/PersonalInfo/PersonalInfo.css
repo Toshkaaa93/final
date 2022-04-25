@@ -1,0 +1,21 @@
+.avatar img{
+    height: 100%;
+}
+
+.avatar{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-info{
+    padding-top: 80px;
+}
+
+.card{
+    background-color: rgb(195, 158, 229);
+    border-radius: 15px;
+}
