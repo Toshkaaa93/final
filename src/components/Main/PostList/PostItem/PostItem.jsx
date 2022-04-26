@@ -20,6 +20,8 @@ const { Link } = require("react-router-dom");
 //   },
 // };
 
+//старый код
+/*
 const PostItem = ({ id, index, topic, image, input, tags }) => {
   const { deletePost } = useContext(PostListContext);
   const deleteHandler = () => deletePost(id);
@@ -61,6 +63,29 @@ const PostItem = ({ id, index, topic, image, input, tags }) => {
       </div>
     </div>
   );
+};
+
+export default PostItem;
+*/
+
+
+const PostItem = ({ image, author, title, text }) => {
+  const { deletePost } = useContext(PostListContext);
+  // const deleteHandler = () => deletePost(id);
+
+  return (
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src={image} class="card-img-top" alt=""/>
+      <div class="card-body">
+        <h5 class="card-title">{title}</h5>
+        <p class="card-text">{text}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  )
 };
 
 export default PostItem;
