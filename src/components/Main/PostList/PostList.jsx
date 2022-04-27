@@ -1,16 +1,41 @@
-import { useContext, useState } from "react";
+import { Grid } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { PostListContext } from "../../../contexts/PostListContext";
+import { loadAllPosts } from "../../../redux/actions/postsAC";
 import PostItem from "./PostItem/PostItem";
 import "./PostList.css";
-
+/*
 const PostList = () => {
   const { posts } = useContext(PostListContext);
   const [searchInput, setSearchInput] = useState("");
   const filterPost = posts.filter((post) => {
     return post.topic.toLowerCase().includes(searchInput.toLowerCase());
-  });
+  });*/
+// мой код
+const PostList = () => {
+  const dispatch = useDispatch();
 
+  const posts = useSelector((store) => store.posts);
+
+  useEffect(() => {
+    dispatch(loadAllPosts());
+  }, []);
+
+  console.log(loadAllPosts());
+
+  if (!posts.length) return <div> Пока никто ничего не написал</div>;
+  // конец моего кода
   return (
+    <Grid container spacing={2}>
+      {posts.map((post) => {
+        return <PostItem key={post._id} {...post} />;
+      })}
+    </Grid>
+  );
+};
+
+/*return (
     <>
       <p className="text-center">
         Хочешь что-то конкретное? Вписывай вот в эту штуку тег. <br />
@@ -52,5 +77,5 @@ const PostList = () => {
     </>
   );
 };
-
+*/
 export default PostList;
