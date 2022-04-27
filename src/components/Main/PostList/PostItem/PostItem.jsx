@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { PostListContext } from "../../../../contexts/PostListContext";
 import "../PostItem/PostItem.css";
@@ -18,7 +19,9 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button, Grid } from "@mui/material";
+import { deletePost } from "../../../../redux/actions/postsAC";
 const { Link } = require("react-router-dom");
+
 //старый код
 /*
 const PostItem = ({ id, index, topic, image, input, tags }) => {
@@ -106,6 +109,11 @@ const PostItem = ({ image, author, title, text, _id }) => {
     setExpanded(!expanded);
   };
 
+  const dispatch = useDispatch();
+  const deleteHandler = () => {
+    dispatch(deletePost(_id));
+  };
+
   return (
     <Grid item xs={4}>
       <Card sx={{ maxWidth: 345 }}>
@@ -150,6 +158,7 @@ const PostItem = ({ image, author, title, text, _id }) => {
             <Link className="btn btn-primary btn-edit" to={`posts/${_id}`}>
               Редактировать
             </Link>
+            <Button onClick={deleteHandler}>Удалить</Button>
           </CardContent>
         </Collapse>
       </Card>
