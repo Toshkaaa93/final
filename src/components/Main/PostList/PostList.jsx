@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { PostListContext } from "../../../contexts/PostListContext";
@@ -11,32 +12,30 @@ const PostList = () => {
   const filterPost = posts.filter((post) => {
     return post.topic.toLowerCase().includes(searchInput.toLowerCase());
   });*/
-  // мой код
-  const PostList = () => {
-const dispatch = useDispatch()
+// мой код
+const PostList = () => {
+  const dispatch = useDispatch();
 
-const posts = useSelector((store) => store.posts)
+  const posts = useSelector((store) => store.posts);
 
-useEffect(() => {
-dispatch(loadAllPosts())
-}, [])
+  useEffect(() => {
+    dispatch(loadAllPosts());
+  }, []);
 
-console.log(loadAllPosts())
+  console.log(loadAllPosts());
 
-if  (!posts.length) 
-return <div> Posts list is empty</div>
-    // конец моего кода
-return (
-  <div>
-    {posts.map((post) => {
-      return <PostItem key={post._id} {...post} />
-    })}
-  </div>
-)
+  if (!posts.length) return <div> Пока никто ничего не написал</div>;
+  // конец моего кода
+  return (
+    <Grid container spacing={2}>
+      {posts.map((post) => {
+        return <PostItem key={post._id} {...post} />;
+      })}
+    </Grid>
+  );
+};
 
-}
-
-  /*return (
+/*return (
     <>
       <p className="text-center">
         Хочешь что-то конкретное? Вписывай вот в эту штуку тег. <br />
