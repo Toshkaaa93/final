@@ -5,20 +5,33 @@ import {
   // EDIT_POST,
   SET_ALL_POSTS,
 } from "../types/PostsTypes";
+import axios from "axios";
+import { axiosInstance } from "../../components/config/axios";
 
 export const setAllPosts = (allPosts) => ({
   type: SET_ALL_POSTS,
   payload: allPosts,
 });
 
-export const loadAllPosts = () => async (dispatch) => {
-  const response = await fetch("https://api.react-learning.ru/posts", {
-    headers: {
-      authorization: `Bearer ${API_TOKEN} `,
+export const loadAllPosts = (searchValue) => async (dispatch) => {
+  const urlForFetch = searchValue
+    ? `https://api.react-learning.ru/posts/search/?query=${searchValue}`
+    : "https://api.react-learning.ru/posts";
+
+  // const response = await fetch(urlForFetch, {
+  //   headers: {
+  //     authorization: `Bearer ${API_TOKEN} `,
+  //   },
+  // });
+
+  const response = await axiosInstance.get("posts/search/", {
+    params: {
+      query: searchValue,
     },
   });
 
-  const postsFromApi = await response.json();
+  // const postsFromApi = await response.json();
+  const postsFromApi = response.data;
 
   dispatch(setAllPosts(postsFromApi));
 };
@@ -29,16 +42,22 @@ export const addNewPost = (allPosts) => ({
 });
 
 export const queryNewPost = (post) => async (dispatch) => {
-  const response = await fetch("https://api.react-learning.ru/posts", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${API_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: post,
-  });
+  // const response = await fetch("https://api.react-learning.ru/posts", {
+  //   method: "POST",
+  //   headers: {
+  //     authorization: `Bearer ${API_TOKEN}`,
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: post,
+  // });
 
-  const postFromApi = await response.json();
+  const bodyObject = JSON.parse(post);
+
+  const response = await axiosInstance.post("posts", bodyObject);
+
+  // const postFromApi = await response.json();
+
+  const postFromApi = response.data();
 
   dispatch(addNewPost(postFromApi));
 };

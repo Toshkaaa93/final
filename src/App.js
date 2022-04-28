@@ -12,7 +12,7 @@ import PersonalAccount from "./components/PersonalAccount/PersonalAccount";
 function App() {
   return (
     <PostListProvider>
-      <div className="container py-5">
+      <div className="container">
         <BrowserRouter>
           <Header />
           <Routes>

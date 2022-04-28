@@ -2,9 +2,11 @@ import { Grid } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { PostListContext } from "../../../contexts/PostListContext";
+import { useDebounce } from "../../../hooks/useDebounce";
 import { loadAllPosts } from "../../../redux/actions/postsAC";
 import PostItem from "./PostItem/PostItem";
 import "./PostList.css";
+import {useThrottle} from '../../../hooks/useThrottle'
 /*
 const PostList = () => {
   const { posts } = useContext(PostListContext);
@@ -18,11 +20,17 @@ const PostList = () => {
 
   const posts = useSelector((store) => store.posts);
 
-  useEffect(() => {
-    dispatch(loadAllPosts());
-  }, []);
+  const search = useSelector((store) => store.search)
 
-  console.log(loadAllPosts());
+  // const debouncedSearch = useDebounce(search, 1000)
+  const debouncedSearch = useThrottle(search, 1500)
+
+  useEffect(() => {
+    dispatch(loadAllPosts(debouncedSearch))
+  }, [debouncedSearch, dispatch])
+
+
+  // console.log(loadAllPosts());
 
   if (!posts.length) return <div> Пока никто ничего не написал</div>;
   // конец моего кода

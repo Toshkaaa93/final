@@ -1,8 +1,17 @@
+import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import { setSearchValue } from "../../../redux/actions/searchAC";
 import "./Navbar.css";
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const searchHandler = (e) => {
+    dispatch(setSearchValue(e.target.value.trim()));
+  };
+// <navclassName="d-flex justify-content-between nav-wrapper bg-color fixed-top">
   return (
-    <nav className="nav-wrapper bg-color container-border my-5">
+    <nav className="justify-content-between nav-wrapper bg-color">
+      
       <ul className="navbar-list">
         <li>
           <div>
@@ -38,6 +47,18 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
+      <form className="d-flex me-4 justify-content-center">
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Поиск постов"
+          inputProps={{ "aria-label": "Search" }}
+          onChange={searchHandler}
+        />
+        <button className="btn btn-outline-primary" type="submit">
+          Поиск
+        </button>
+      </form>
     </nav>
   );
 };
