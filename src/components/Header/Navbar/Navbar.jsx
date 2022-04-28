@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 // <navclassName="d-flex justify-content-between nav-wrapper bg-color fixed-top">
   return (
-    <nav className="justify-content-between nav-wrapper bg-color">
+    <nav className="justify-content-between nav-wrapper bg-color pb-3">
       
       <ul className="navbar-list">
         <li>

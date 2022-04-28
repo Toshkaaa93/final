@@ -158,9 +158,6 @@ const PostItem = ({ image, author, title, text, _id }) => {
             <Link className="btn btn-primary btn-edit" to={`posts/${_id}`}>
               Редактировать
             </Link>
-            <Link className="btn btn-primary btn-edit" to={`posts/${_id}`}>
-              Удалить
-            </Link>
             <Button
               onClick={deleteHandler}
               type="button"

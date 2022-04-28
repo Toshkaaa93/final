@@ -28,15 +28,17 @@ const PostList = () => {
   useEffect(() => {
     dispatch(loadAllPosts(debouncedSearch))
   }, [debouncedSearch, dispatch])
+  let postsForRender = posts
+  const reverseMassive = posts.slice(0, postsForRender.length);
+  postsForRender = reverseMassive.reverse() 
 
 
-  // console.log(loadAllPosts());
 
   if (!posts.length) return <div> Пока никто ничего не написал</div>;
   // конец моего кода
   return (
     <Grid container spacing={2}>
-      {posts.map((post) => {
+      {postsForRender.map((post) => {
         return <PostItem key={post._id} {...post} />;
       })}
     </Grid>
