@@ -19,15 +19,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route
-              path="/about"
-              element={
-                <RequireAuth>
-                  <About />
-                </RequireAuth>
-              }
-            />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/about" element={<About />} />
+            {/* <Route path="/signin" element={<SignIn />} /> */}
             <Route path="/info" element={<Contacts />} />
             <Route path="/myaccount" element={<PersonalAccount />} />
             <Route path="/:id" element={<DetailPage />} />

@@ -1,4 +1,5 @@
 import { axiosInstance } from "../../components/config/axios";
+import { SIGN_IN } from "../types/personType";
 
 export const signIn = (person) => ({
   type: SIGN_IN,
@@ -12,7 +13,7 @@ export const signInQuerry =
       email,
       password,
     });
-    const person = responce.data;
+    const person = response.data;
 
     dispatch(
       signIn({
@@ -21,5 +22,5 @@ export const signInQuerry =
       })
     );
 
-    cb && cb();
+    typeof cb === "function" && cb();
   };

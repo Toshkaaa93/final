@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { signInQuerry } from '../../../redux/actions/PersonAC';
 
 
 
@@ -24,15 +25,22 @@ export default function SignIn() {
   const location = useLocation()
   const dispatch = useDispatch()
 
+  let from = location.state?.from?.pathname || "/"
+
   
     const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    
+    dispatch(
+        signInQuerry({
+            email: data.get('email'),
+            password: data.get('password'),
+            cb: () => {
+                navigate(from, {replace: true})
+            }
+        })
+    )
 
   return (
     <ThemeProvider theme={theme}>
@@ -90,5 +98,6 @@ export default function SignIn() {
         </Box>
       </Container>
     </ThemeProvider>
-  );
-}
+  )
+        }
+    }

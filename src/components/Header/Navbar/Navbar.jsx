@@ -31,26 +31,26 @@ const Navbar = () => {
             </button>
           </div>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavLink className="nav-link" to="about">
             О нас
           </NavLink>
-        </li>
-        <li className="nav-item">
+        </li> */}
+        {/* <li className="nav-item">
           <NavLink className="nav-link" to="info">
             Контакты
           </NavLink>
-        </li>
+        </li> */}
         <li className="nav-item">
           <NavLink className="nav-link" to="myaccount">
             Мой кабинет
           </NavLink>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavLink className="nav-link" to="signin">
             Войти
           </NavLink>
-        </li>
+        </li> */}
       </ul>
       <form className="d-flex me-4 justify-content-center">
         <input
