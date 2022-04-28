@@ -28,7 +28,7 @@ const postsReducer = (state = [], action) => {
     //   });
 
     case DELETE_POST:
-      return state.filter((post) => post.id !== action.payload);
+      return state.filter((post) => post._id !== action.payload);
 
     // case CLEAR_ALL_POST:
     //   return [];

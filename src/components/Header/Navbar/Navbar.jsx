@@ -46,6 +46,11 @@ const Navbar = () => {
             Мой кабинет
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="signin">
+            Войти
+          </NavLink>
+        </li>
       </ul>
       <form className="d-flex me-4 justify-content-center">
         <input
